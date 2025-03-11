@@ -39,11 +39,11 @@ kotlin {
 
         androidMain.dependencies {
 
-            //Client de requêtes spécifique à Android
-            implementation("io.ktor:ktor-client-okhttp:3.0.0")
-
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            //Client de requêtes spécifique à Android
+            implementation("io.ktor:ktor-client-okhttp:3.0.0")
         }
         iosMain.dependencies {
             //Client de requêtes spécifique à iOS
