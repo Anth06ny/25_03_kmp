@@ -63,6 +63,10 @@ kotlin {
             implementation("io.coil-kt.coil3:coil-network-ktor3:3.0.0")
             implementation("io.coil-kt.coil3:coil-compose:3.0.0")
 
+
+            //navigation
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.+")
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -71,6 +75,9 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+
+
+
         }
         desktopMain.dependencies {
             //Client de requêtes spécifique au bureau sur JVM donc même qu'Android

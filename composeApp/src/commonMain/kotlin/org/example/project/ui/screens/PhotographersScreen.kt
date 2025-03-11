@@ -44,7 +44,8 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun PhotographersScreen(
     modifier: Modifier = Modifier,
-    mainViewModel: MainViewModel = viewModel { MainViewModel() }
+    mainViewModel: MainViewModel = viewModel { MainViewModel() },
+    onItemClick: (Photographer) -> Unit = {}
 ) {
     val list by mainViewModel.dataList.collectAsStateWithLifecycle()
     val runInProgress by mainViewModel.runInProgress.collectAsStateWithLifecycle()
@@ -66,7 +67,7 @@ fun PhotographersScreen(
 
         LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             items(list.size) {
-                PhotographerItem(list[it])
+                PhotographerItem(list[it], onItemClick = onItemClick)
             }
         }
 
