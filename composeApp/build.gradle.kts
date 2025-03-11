@@ -65,7 +65,9 @@ kotlin {
 
 
             //navigation
-            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.+")
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
+
+            //implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.+")
 
             implementation(compose.runtime)
             implementation(compose.foundation)
