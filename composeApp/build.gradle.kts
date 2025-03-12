@@ -89,6 +89,12 @@ kotlin {
 
 
         }
+        commonTest.dependencies {
+            implementation("io.insert-koin:koin-test:4.0.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
+            //Kotlin Version
+            implementation("org.jetbrains.kotlin:kotlin-test:2.1.10")
+        }
         desktopMain.dependencies {
             //Client de requêtes spécifique au bureau sur JVM donc même qu'Android
             implementation("io.ktor:ktor-client-okhttp:3.0.0")
