@@ -1,28 +1,36 @@
 package org.example.project.model
 
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.request.get
+import io.ktor.http.ContentType
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 suspend fun main() {
-    println(PhotographerAPI.loadPhotographers().joinToString(separator = "\n\n"))
-}
-
-object PhotographerAPI {
-    private const val API_URL = "https://www.amonteiro.fr/api/photographers"
-
-    //Déclaration du client
-    private val client = HttpClient {
+    val photographerAPI = PhotographerAPI( HttpClient {
         install(ContentNegotiation) {
             json(Json { ignoreUnknownKeys = true }, contentType = ContentType.Any)
         }
+    })
+
+   println(photographerAPI.loadPhotographers().joinToString(separator = "\n\n"))
+}
+
+class PhotographerAPI(private val client:HttpClient) {
+    companion object{
+        private const val API_URL = "https://www.amonteiro.fr/api/photographers"
     }
+
+//    //Déclaration du client
+//    private val client = HttpClient {
+//        install(ContentNegotiation) {
+//            json(Json { ignoreUnknownKeys = true }, contentType = ContentType.Any)
+//        }
+//    }
 
     //GET
     suspend fun loadPhotographers(): List<Photographer> {

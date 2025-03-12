@@ -10,18 +10,18 @@ import org.example.project.model.Photographer
 import org.example.project.ui.screens.PhotographerScreen
 import org.example.project.ui.screens.PhotographersScreen
 import org.example.project.ui.theme.AppTheme
+import org.koin.compose.viewmodel.koinViewModel
 
 @Preview
 @Composable
 fun ScreensPreviews() {
     AppTheme {
-    val viewModel = MainViewModel()
+        val viewModel: MainViewModel = koinViewModel<MainViewModel>()
         viewModel.loadFakeData(true, "Une erreur")
 
-        PhotographersScreen(mainViewModel =  viewModel)
+        PhotographersScreen(mainViewModel = viewModel)
     }
 }
-
 
 
 @Preview

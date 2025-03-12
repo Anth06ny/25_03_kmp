@@ -44,6 +44,9 @@ kotlin {
 
             //Client de requêtes spécifique à Android
             implementation("io.ktor:ktor-client-okhttp:3.0.0")
+
+            //Si besoin du context
+            implementation("io.insert-koin:koin-android:4.0.0")
         }
         iosMain.dependencies {
             //Client de requêtes spécifique à iOS
@@ -66,6 +69,11 @@ kotlin {
 
             //navigation
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.0-alpha10")
+
+            //Injection dépendance KOIN
+            implementation("io.insert-koin:koin-compose:4.0.0")
+            implementation("io.insert-koin:koin-compose-viewmodel:4.0.0")
+            implementation("io.insert-koin:koin-compose-viewmodel-navigation:4.0.0")
 
             //implementation("org.jetbrains.androidx.navigation:navigation-compose:2.8.+")
 

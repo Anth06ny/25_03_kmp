@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import org.example.project.model.Photographer
 import org.example.project.model.PhotographerAPI
 
-class MainViewModel : ViewModel() {
+class MainViewModel(private val photographerAPI: PhotographerAPI) : ViewModel() {
 
     private val _dataList = MutableStateFlow(emptyList<Photographer>())
     val dataList = _dataList.asStateFlow()
@@ -28,7 +28,7 @@ class MainViewModel : ViewModel() {
 
         viewModelScope.launch {
             try {
-                _dataList.value = PhotographerAPI.loadPhotographers()
+                _dataList.value = photographerAPI.loadPhotographers()
                 _runInProgress.value = false
             }
             catch (e: Exception) {

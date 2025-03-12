@@ -32,19 +32,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import kotlinproject.composeapp.generated.resources.Res
 import kotlinproject.composeapp.generated.resources.compose_multiplatform
 import org.example.project.MainViewModel
 import org.example.project.model.Photographer
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 
 
 @Composable
 fun PhotographersScreen(
     modifier: Modifier = Modifier,
-    mainViewModel: MainViewModel = viewModel { MainViewModel() },
+    mainViewModel: MainViewModel = koinViewModel<MainViewModel>(),
     onItemClick: (Photographer) -> Unit = {}
 ) {
     val list by mainViewModel.dataList.collectAsStateWithLifecycle()
