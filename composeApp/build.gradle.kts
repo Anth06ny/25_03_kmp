@@ -87,6 +87,15 @@ kotlin {
             implementation("app.cash.sqldelight:runtime:2.0.2")
             implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
 
+            api("dev.icerock.moko:permissions:0.18.0")
+            api("dev.icerock.moko:permissions-compose:0.18.0")
+
+            api("dev.icerock.moko:geo:0.8.0")
+
+            // Compose Multiplatform
+            api("dev.icerock.moko:geo-compose:0.8.0")
+
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -95,9 +104,6 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-
-
-
         }
         commonTest.dependencies {
             implementation("io.insert-koin:koin-test:4.0.0")
