@@ -7,6 +7,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.example.project.MainViewModel
 import org.example.project.model.PhotographerAPI
+import org.example.project.model.databaseModule
 import org.koin.core.context.startKoin
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
@@ -17,7 +18,7 @@ import org.koin.dsl.module
 fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
     startKoin {
         appDeclaration()
-        modules(apiModule, viewModelModule)
+        modules(apiModule, databaseModule(), viewModelModule)
     }
 
 // Version pour iOS et Desktop
